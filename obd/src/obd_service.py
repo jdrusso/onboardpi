@@ -28,7 +28,7 @@ class OBDService():
         self.__callbacks = defaultdict(dict[ResponseCallback])  # key = OBDCommand, value = list of Functions
         self.__is_running = asyncio.Event()
         self.__is_connecting_now = asyncio.Event()
-        self.connection = obd.OBD("init") # a temp connection to nowhere so self.connection instantiated
+        self.connection = obd.OBD("/dev/ttyBLE0")
 
 
     async def connect(self, portstr: str = None):
